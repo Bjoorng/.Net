@@ -1,0 +1,14 @@
+C:\Users\total\source\repos\terzo-progetto-liste\obj\Debug\net8.0\terzo-progetto-liste.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\total\source\repos\terzo-progetto-liste\obj\Debug\net8.0\terzo-progetto-liste.AssemblyInfoInputs.cache
+C:\Users\total\source\repos\terzo-progetto-liste\obj\Debug\net8.0\terzo-progetto-liste.AssemblyInfo.cs
+C:\Users\total\source\repos\terzo-progetto-liste\obj\Debug\net8.0\terzo-progetto-liste.csproj.CoreCompileInputs.cache
+C:\Users\total\source\repos\terzo-progetto-liste\bin\Debug\net8.0\terzo-progetto-liste.exe
+C:\Users\total\source\repos\terzo-progetto-liste\bin\Debug\net8.0\terzo-progetto-liste.deps.json
+C:\Users\total\source\repos\terzo-progetto-liste\bin\Debug\net8.0\terzo-progetto-liste.runtimeconfig.json
+C:\Users\total\source\repos\terzo-progetto-liste\bin\Debug\net8.0\terzo-progetto-liste.dll
+C:\Users\total\source\repos\terzo-progetto-liste\bin\Debug\net8.0\terzo-progetto-liste.pdb
+C:\Users\total\source\repos\terzo-progetto-liste\obj\Debug\net8.0\terzo-progetto-liste.dll
+C:\Users\total\source\repos\terzo-progetto-liste\obj\Debug\net8.0\refint\terzo-progetto-liste.dll
+C:\Users\total\source\repos\terzo-progetto-liste\obj\Debug\net8.0\terzo-progetto-liste.pdb
+C:\Users\total\source\repos\terzo-progetto-liste\obj\Debug\net8.0\terzo-progetto-liste.genruntimeconfig.cache
+C:\Users\total\source\repos\terzo-progetto-liste\obj\Debug\net8.0\ref\terzo-progetto-liste.dll
