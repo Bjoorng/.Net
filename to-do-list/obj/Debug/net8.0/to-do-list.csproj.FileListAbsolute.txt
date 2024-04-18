@@ -12,3 +12,4 @@ C:\Users\total\source\repos\to-do-list\obj\Debug\net8.0\refint\to-do-list.dll
 C:\Users\total\source\repos\to-do-list\obj\Debug\net8.0\to-do-list.pdb
 C:\Users\total\source\repos\to-do-list\obj\Debug\net8.0\to-do-list.genruntimeconfig.cache
 C:\Users\total\source\repos\to-do-list\obj\Debug\net8.0\ref\to-do-list.dll
+C:\Users\total\source\repos\to-do-list\obj\Debug\net8.0\to-do-list.sourcelink.json

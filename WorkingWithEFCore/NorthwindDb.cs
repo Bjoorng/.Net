@@ -1,16 +1,40 @@
-using Microsoft.EntityFrameworkCore; // To use DbContext and so on.
+using Microsoft.EntityFrameworkCore;
+
 namespace Northwind.EntityModels;
-// This manages interactions with the Northwind database.
+
 public class NorthwindDb : DbContext
 {
-    protected override void OnConfiguring(
-    DbContextOptionsBuilder optionsBuilder)
+
+    public DbSet<Category>? Categories { get; set; }
+    public DbSet<Product>? Products { get; set; }
+
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         string databaseFile = "Northwind.db";
-        string path = Path.Combine(
-        Environment.CurrentDirectory, databaseFile);
+        string path = Path.Combine(Environment.CurrentDirectory, databaseFile);
         string connectionString = $"Data Source={path}";
-        WriteLine($"Connection: {connectionString}");
+        WriteLine(connectionString);
         optionsBuilder.UseSqlite(connectionString);
+        optionsBuilder.LogTo(WriteLine) // This is the Console method.
+        #if DEBUG
+            .EnableSensitiveDataLogging() // Include SQL parameters.
+            .EnableDetailedErrors()
+        #endif
+        ;
+    }
+
+    protected override void OnModelCreating(
+    ModelBuilder modelBuilder)
+    {
+        modelBuilder.Entity<Category>()
+        .Property(category => category.CategoryName)
+        .IsRequired() // NOT NULL
+        .HasMaxLength(15);
+        if (Database.ProviderName?.Contains("Sqlite") ?? false)
+        {
+            modelBuilder.Entity<Product>()
+            .Property(product => product.Cost)
+            .HasConversion<double>();
+        }
     }
 }
