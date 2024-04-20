@@ -50,10 +50,7 @@ do
                         {
                             Console.WriteLine("Subjects:");
                             List<Subject> subjectsEdit = dbContext.Subjects.ToList();
-                            foreach (Subject subject in subjectsEdit)
-                            {
-                                Console.WriteLine($"{subject.Id} {subject.Name}");
-                            }
+                            subjectsEdit.ForEach(element => Console.WriteLine($"{element.Id} - {element.Name}"));
                             Console.WriteLine("Type the index of the Subject You want to change! or [E] to exit: ");
                             string idEdit = Console.ReadLine() ?? string.Empty;
                             if (idEdit.ToUpper().Equals("E"))
@@ -96,10 +93,7 @@ do
                         {
                             Console.WriteLine("Subjects:");
                             List<Subject> subjectsDelete = dbContext.Subjects.ToList();
-                            foreach (Subject subject in subjectsDelete)
-                            {
-                                Console.WriteLine($"{subject.Id} {subject.Name}");
-                            }
+                            subjectsDelete.ForEach(element => Console.WriteLine($"{element.Id} {element.Name}"));
                             Console.WriteLine("Type the index of the Subject You want to delete! or [E] to exit: ");
                             string id = Console.ReadLine() ?? string.Empty;
                             if (id.ToUpper().Equals("E"))
@@ -283,10 +277,7 @@ do
                                     }
                                     Console.WriteLine("Subjects:");
                                     List<Subject> subjectsEdit = dbContext.Subjects.ToList();
-                                    foreach (Subject subject in subjectsEdit)
-                                    {
-                                        Console.WriteLine($"{subject.Id} {subject.Name}");
-                                    }
+                                    subjectsEdit.ForEach(element => Console.WriteLine($"{element.Id} {element.Name}"));
                                     Console.WriteLine("Type the index of the new Subject You want to assign!");
                                     string classId = Console.ReadLine() ?? string.Empty;
                                     if (!int.TryParse(classId, out index))
@@ -330,10 +321,7 @@ do
                         {
                             Console.WriteLine("Subjects:");
                             List<Student> studentsDelete = dbContext.Students.ToList();
-                            foreach (Student student in studentsDelete)
-                            {
-                                Console.WriteLine($"{student.Id} {student.FirstName} {student.LastName}");
-                            }
+                            studentsDelete.ForEach(element => Console.WriteLine($"{element.Id} {element.FirstName} {element.LastName}"));
                             Console.WriteLine("Type the index of the Subject You want to delete! or [E] to exit: ");
                             id = Console.ReadLine() ?? string.Empty;
                             if (id.ToUpper().Equals("E"))
