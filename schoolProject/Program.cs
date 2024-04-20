@@ -201,21 +201,22 @@ do
                         }
                         Console.WriteLine("Type the index of the Subject You want to assign to the Student! or [E] to exit");
                         string id = Console.ReadLine() ?? string.Empty;
-                            if (id.ToUpper().Equals("E"))
-                            {
-                                break;
-                            }
-                            else if (!int.TryParse(id, out int index))
-                            {
-                                Console.WriteLine($"Invalid Input: {id}");
-                            }
-                            else if (int.Parse(id) < 1)
-                            {
-                                Console.WriteLine("No Id in Our DB");
-                            }
-                            else{
-                                stud.SubjectId = int.Parse(id);
-                            }
+                        if (id.ToUpper().Equals("E"))
+                        {
+                            break;
+                        }
+                        else if (!int.TryParse(id, out int index))
+                        {
+                            Console.WriteLine($"Invalid Input: {id}");
+                        }
+                        else if (int.Parse(id) < 1)
+                        {
+                            Console.WriteLine("No Id in Our DB");
+                        }
+                        else
+                        {
+                            stud.SubjectId = int.Parse(id);
+                        }
                         dbContext.Add(stud);
                         dbContext.SaveChanges();
                         break;
@@ -227,9 +228,11 @@ do
                             List<Student> studentsEdit = dbContext.Students.ToList();
                             foreach (Student student in studentsEdit)
                             {
-                                Console.WriteLine($"{student.Id} {student.FirstName} {student.LastName} - Subject: {student.Subject.Name}");
+                                Subject subject = dbContext.Subjects.Find(student.SubjectId);
+                                Console.WriteLine($"{student.Id} {student.FirstName} {student.LastName} - Subject: {subject.Name}");
+                                //Console.WriteLine($"{student.Id} {student.FirstName} {student.LastName} - Subject: {student.Subject.Name}");
                             }
-                            Console.WriteLine("Type the index of the Subject You want to change! or [E] to exit: ");
+                            Console.WriteLine("Type the index of the Student You want to change! or [E] to exit: ");
                             string idEdit = Console.ReadLine() ?? string.Empty;
                             if (idEdit.ToUpper().Equals("E"))
                             {
@@ -252,10 +255,13 @@ do
                                 {
                                     Console.WriteLine("Insert the student's new First Name: ");
                                     string newName = Console.ReadLine() ?? string.Empty;
-                                    if (!newName.Equals(string.Empty))
+                                    if (!newName.IsNullOrEmpty())
                                     {
                                         studentById.FirstName = newName;
                                         Console.WriteLine($"FirstName Changed to {newName}");
+                                    }
+                                    else if(double.TryParse(newName, out number)){
+                                        Console.WriteLine($"Invalid Input: {number}");
                                     }
                                     else
                                     {
@@ -263,14 +269,50 @@ do
                                     }
                                     Console.WriteLine("Insert the student's new Last Name: ");
                                     newName = Console.ReadLine() ?? string.Empty;
-                                    if (!newName.Equals(string.Empty))
+                                    if (!newName.IsNullOrEmpty())
                                     {
                                         studentById.LastName = newName;
                                         Console.WriteLine($"FirstName Changed to {studentById.LastName}");
                                     }
+                                    else if(double.TryParse(newName, out number)){
+                                        Console.WriteLine($"Invalid Input: {number}");
+                                    }
                                     else
                                     {
                                         studentById.LastName = studentById.LastName;
+                                    }
+                                    Console.WriteLine("Subjects:");
+                                    List<Subject> subjectsEdit = dbContext.Subjects.ToList();
+                                    foreach (Subject subject in subjectsEdit)
+                                    {
+                                        Console.WriteLine($"{subject.Id} {subject.Name}");
+                                    }
+                                    Console.WriteLine("Type the index of the new Subject You want to assign!");
+                                    string classId = Console.ReadLine() ?? string.Empty;
+                                    if (!int.TryParse(classId, out index))
+                                    {
+                                        Console.WriteLine($"Invalid Input: {idEdit}");
+                                    }
+                                    else if (int.Parse(idEdit) < 1)
+                                    {
+                                        Console.WriteLine("Invalid Input!");
+                                    }
+                                    else if(classId.IsNullOrEmpty()){
+                                        studentById.SubjectId = studentById.SubjectId;
+                                    }
+                                    else{
+                                        int parsedClassId = int.Parse(classId);
+                                        Subject subjectById = dbContext.Subjects.Find(parsedClassId);
+                                        if (subjectById!= null)
+                                        {
+                                            studentById.SubjectId = subjectById.Id;
+                                            studentById.Subject = subjectById;
+                                            Console.WriteLine($"Subject Changed to {studentById.Subject.Name}");
+                                        }
+                                        else
+                                        {
+                                            studentById.SubjectId = studentById.SubjectId;
+                                        }
                                     }
                                     dbContext.Students.Update(studentById);
                                     dbContext.SaveChanges();
