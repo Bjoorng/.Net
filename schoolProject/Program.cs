@@ -228,7 +228,7 @@ do
                             foreach (Student student in studentsEdit)
                             {
                                 Subject subject = dbContext.Subjects.Find(student.SubjectId);
-                                Console.WriteLine($"{student.Id} {student.FirstName} {student.LastName} \n Subject: {subject.Name}");
+                                Console.WriteLine($"{student.Id} {student.FirstName} {student.LastName} - Subject: {subject.Name}");
                             }
                             Console.WriteLine("Type the index of the Subject You want to change! or [E] to exit: ");
                             string idEdit = Console.ReadLine() ?? string.Empty;
