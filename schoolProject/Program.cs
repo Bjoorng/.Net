@@ -215,7 +215,6 @@ do
                             }
                             else{
                                 stud.SubjectId = int.Parse(id);
-                                stud.Subject = dbContext.Subjects.Find(int.Parse(id));
                             }
                         dbContext.Add(stud);
                         dbContext.SaveChanges();
@@ -228,7 +227,8 @@ do
                             List<Student> studentsEdit = dbContext.Students.ToList();
                             foreach (Student student in studentsEdit)
                             {
-                                Console.WriteLine($"{student.Id} {student.FirstName} {student.LastName} \n Subject: {student.Subject.Name}");
+                                Subject subject = dbContext.Subjects.Find(student.SubjectId);
+                                Console.WriteLine($"{student.Id} {student.FirstName} {student.LastName} \n Subject: {subject.Name}");
                             }
                             Console.WriteLine("Type the index of the Subject You want to change! or [E] to exit: ");
                             string idEdit = Console.ReadLine() ?? string.Empty;
