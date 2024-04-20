@@ -11,9 +11,9 @@ bool app = true;
 
 do
 {
-    Console.WriteLine("Type [C] to insert a new Class or [S] to insert a new Student!");
+    Console.WriteLine("Type [C] to manage your Classes or [S] to manage the Students! [E] to exit");
     string choice = Console.ReadLine() ?? string.Empty;
-    switch (choice)
+    switch (choice.ToUpper())
     {
         case "C":
             bool subjectCase = true;
@@ -142,7 +142,7 @@ do
                         } while (delete);
                         break;
                     case "E":
-                        app = false;
+                        subjectCase = false;
                         break;
                     default:
                         Console.WriteLine("invalid input");
@@ -233,6 +233,7 @@ do
                             string idEdit = Console.ReadLine() ?? string.Empty;
                             if (idEdit.ToUpper().Equals("E"))
                             {
+                                edit = false;
                                 break;
                             }
                             else if (!int.TryParse(idEdit, out int index))
@@ -333,13 +334,16 @@ do
                         } while (delete);
                         break;
                     case "E":
-                        app = false;
+                        studentCase = false;
                         break;
                     default:
                         Console.WriteLine("invalid input");
                         break;
                 }
             } while (studentCase);
+            break;
+        case "E":
+            app = false;
             break;
         default:
             Console.WriteLine("Invalid Input!");
