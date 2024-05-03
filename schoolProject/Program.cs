@@ -49,7 +49,7 @@ do
                         do
                         {
                             Console.WriteLine("Subjects:");
-                            List<Subject> subjectsEdit = dbContext.Subjects.ToList();
+                            List<Subject> subjectsEdit = dbContext.Subjects.AsNoTracking().ToList();
                             subjectsEdit.ForEach(element => Console.WriteLine($"{element.Id} - {element.Name}"));
                             Console.WriteLine("Type the index of the Subject You want to change! or [E] to exit: ");
                             string idEdit = Console.ReadLine() ?? string.Empty;
@@ -71,13 +71,83 @@ do
                                 Subject subjectById = dbContext.Subjects.Find(parsedId);
                                 if (subjectById != null)
                                 {
-                                    Console.WriteLine("Insert the new Name for the Subject: ");
-                                    subjectById.Name = Console.ReadLine() ?? string.Empty;
-                                    if (!subjectById.Name.Equals(string.Empty))
+                                    Console.WriteLine("Would you like to edit the Subject's [N]ame? or the [S]tudents?: ");
+                                    choice = Console.ReadLine() ?? string.Empty;
+                                    if (choice.ToUpper().Equals("N"))
                                     {
-                                        dbContext.Subjects.Update(subjectById);
-                                        dbContext.SaveChanges();
-                                        Console.WriteLine($"Name Changed to {subjectById.Name}");
+                                        Console.WriteLine("Insert the new Name for the Subject: ");
+                                        subjectById.Name = Console.ReadLine() ?? string.Empty;
+                                        if (!subjectById.Name.Equals(string.Empty))
+                                        {
+                                            dbContext.Subjects.Update(subjectById);
+                                            dbContext.SaveChanges();
+                                            Console.WriteLine($"Name Changed to {subjectById.Name}");
+                                        }
+                                    }
+                                    else
+                                    {
+                                        List<Student> studentsByCourse = dbContext.Students.Where(element => element.SubjectId == parsedId).ToList();
+                                        studentsByCourse.ForEach(element => Console.WriteLine($"{element.Id} - {element.FirstName} {element.LastName}"));
+                                        Console.WriteLine("Insert the id of the student you want to interact with");
+                                        choice = Console.ReadLine() ?? string.Empty;
+                                        if (!int.TryParse(choice, out int studentId))
+                                        {
+                                            Console.WriteLine($"Invalid Input: {choice}");
+                                        }
+                                        else
+                                        {
+
+                                            Student studentById = dbContext.Students.Find(studentId);
+                                            if (studentById != null)
+                                            {
+                                                Console.WriteLine("Would You Like to [M]odify or [D]elete the student? [E] to exit:");
+                                                choice = Console.ReadLine() ?? string.Empty;
+                                                if (choice.ToUpper().Equals("E"))
+                                                {
+                                                    break;
+                                                }
+                                                else if (choice.ToUpper().Equals("M"))
+                                                {
+                                                    Console.WriteLine("Insert the student's new First Name: ");
+                                                    string newName = Console.ReadLine() ?? string.Empty;
+                                                    if (!newName.IsNullOrEmpty())
+                                                    {
+                                                        studentById.FirstName = newName;
+                                                        Console.WriteLine($"FirstName Changed to {newName}");
+                                                    }
+                                                    else if (double.TryParse(newName, out number))
+                                                    {
+                                                        Console.WriteLine($"Invalid Input: {number}");
+                                                    }
+                                                    else
+                                                    {
+                                                        studentById.FirstName = studentById.FirstName;
+                                                    }
+                                                    Console.WriteLine("Insert the student's new Last Name: ");
+                                                    newName = Console.ReadLine() ?? string.Empty;
+                                                    if (!newName.IsNullOrEmpty())
+                                                    {
+                                                        studentById.LastName = newName;
+                                                        Console.WriteLine($"FirstName Changed to {studentById.LastName}");
+                                                    }
+                                                    else if (double.TryParse(newName, out number))
+                                                    {
+                                                        Console.WriteLine($"Invalid Input: {number}");
+                                                    }
+                                                    else
+                                                    {
+                                                        studentById.LastName = studentById.LastName;
+                                                    }
+                                                }
+                                                else if (choice.ToUpper().Equals("D")){
+                                                    dbContext.Students.Remove(studentById);
+                                                    dbContext.SaveChanges();
+                                                    Console.WriteLine($"Student {studentById.FirstName} {studentById.LastName} has been deleted!");
+                                                }else{
+                                                    Console.WriteLine("Invalid Input!");
+                                                }
+                                            }
+                                        }
                                     }
                                 }
                                 else
@@ -254,7 +324,8 @@ do
                                         studentById.FirstName = newName;
                                         Console.WriteLine($"FirstName Changed to {newName}");
                                     }
-                                    else if(double.TryParse(newName, out number)){
+                                    else if (double.TryParse(newName, out number))
+                                    {
                                         Console.WriteLine($"Invalid Input: {number}");
                                     }
                                     else
@@ -268,7 +339,8 @@ do
                                         studentById.LastName = newName;
                                         Console.WriteLine($"FirstName Changed to {studentById.LastName}");
                                     }
-                                    else if(double.TryParse(newName, out number)){
+                                    else if (double.TryParse(newName, out number))
+                                    {
                                         Console.WriteLine($"Invalid Input: {number}");
                                     }
                                     else
@@ -288,13 +360,15 @@ do
                                     {
                                         Console.WriteLine("Invalid Input!");
                                     }
-                                    else if(classId.IsNullOrEmpty()){
+                                    else if (classId.IsNullOrEmpty())
+                                    {
                                         studentById.SubjectId = studentById.SubjectId;
                                     }
-                                    else{
+                                    else
+                                    {
                                         int parsedClassId = int.Parse(classId);
                                         Subject subjectById = dbContext.Subjects.Find(parsedClassId);
-                                        if (subjectById!= null)
+                                        if (subjectById != null)
                                         {
                                             studentById.SubjectId = subjectById.Id;
                                             studentById.Subject = subjectById;
