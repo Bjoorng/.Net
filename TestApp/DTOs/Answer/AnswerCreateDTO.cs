@@ -1,13 +1,14 @@
 using AutoMapper;
 
-public class AnswerCreateDTO()
+public class AnswerDTO()
 {
     public string Text { get; set; }
+    public bool IsCorrect { get; set; }
 
-    public class AnswerCreateProfile : Profile {
-        public AnswerCreateProfile()
+    public class AnswerProfile : Profile {
+        public AnswerProfile()
         {
-            CreateMap<AnswerCreateDTO, Answer>();
+            CreateMap<AnswerDTO, Answer>();
         }
     }
 }

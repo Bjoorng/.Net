@@ -29,28 +29,21 @@ namespace TestApp.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<bool>("IsCorrect")
+                        .HasColumnType("bit");
+
+                    b.Property<int?>("QuestionId")
+                        .HasColumnType("int");
+
                     b.Property<string>("Text")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
+                    b.HasIndex("QuestionId");
+
                     b.ToTable("Answers");
-                });
-
-            modelBuilder.Entity("AnswerQuestion", b =>
-                {
-                    b.Property<int>("AnswersId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("QuestionsId")
-                        .HasColumnType("int");
-
-                    b.HasKey("AnswersId", "QuestionsId");
-
-                    b.HasIndex("QuestionsId");
-
-                    b.ToTable("AnswerQuestion");
                 });
 
             modelBuilder.Entity("Category", b =>
@@ -95,6 +88,9 @@ namespace TestApp.Migrations
                     b.Property<int?>("SubjectId")
                         .HasColumnType("int");
 
+                    b.Property<int?>("TestId")
+                        .HasColumnType("int");
+
                     b.Property<string>("Text")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -105,22 +101,9 @@ namespace TestApp.Migrations
 
                     b.HasIndex("SubjectId");
 
+                    b.HasIndex("TestId");
+
                     b.ToTable("Questions");
-                });
-
-            modelBuilder.Entity("QuestionTest", b =>
-                {
-                    b.Property<int>("QuestionsId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("TestsId")
-                        .HasColumnType("int");
-
-                    b.HasKey("QuestionsId", "TestsId");
-
-                    b.HasIndex("TestsId");
-
-                    b.ToTable("QuestionTest");
                 });
 
             modelBuilder.Entity("Subject", b =>
@@ -151,6 +134,9 @@ namespace TestApp.Migrations
                     b.Property<int?>("CategoryId")
                         .HasColumnType("int");
 
+                    b.Property<int>("Difficulty")
+                        .HasColumnType("int");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -162,19 +148,13 @@ namespace TestApp.Migrations
                     b.ToTable("Tests");
                 });
 
-            modelBuilder.Entity("AnswerQuestion", b =>
+            modelBuilder.Entity("Answer", b =>
                 {
-                    b.HasOne("Answer", null)
-                        .WithMany()
-                        .HasForeignKey("AnswersId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.HasOne("Question", "Question")
+                        .WithMany("Answers")
+                        .HasForeignKey("QuestionId");
 
-                    b.HasOne("Question", null)
-                        .WithMany()
-                        .HasForeignKey("QuestionsId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.Navigation("Question");
                 });
 
             modelBuilder.Entity("Category", b =>
@@ -189,31 +169,22 @@ namespace TestApp.Migrations
             modelBuilder.Entity("Question", b =>
                 {
                     b.HasOne("Category", "Category")
-                        .WithMany()
+                        .WithMany("Questions")
                         .HasForeignKey("CategoryId");
 
                     b.HasOne("Subject", "Subject")
                         .WithMany()
                         .HasForeignKey("SubjectId");
 
+                    b.HasOne("Test", "Test")
+                        .WithMany("Questions")
+                        .HasForeignKey("TestId");
+
                     b.Navigation("Category");
 
                     b.Navigation("Subject");
-                });
 
-            modelBuilder.Entity("QuestionTest", b =>
-                {
-                    b.HasOne("Question", null)
-                        .WithMany()
-                        .HasForeignKey("QuestionsId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Test", null)
-                        .WithMany()
-                        .HasForeignKey("TestsId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.Navigation("Test");
                 });
 
             modelBuilder.Entity("Test", b =>
@@ -227,12 +198,24 @@ namespace TestApp.Migrations
 
             modelBuilder.Entity("Category", b =>
                 {
+                    b.Navigation("Questions");
+
                     b.Navigation("Tests");
+                });
+
+            modelBuilder.Entity("Question", b =>
+                {
+                    b.Navigation("Answers");
                 });
 
             modelBuilder.Entity("Subject", b =>
                 {
                     b.Navigation("Categories");
+                });
+
+            modelBuilder.Entity("Test", b =>
+                {
+                    b.Navigation("Questions");
                 });
 #pragma warning restore 612, 618
         }

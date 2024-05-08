@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "FnKEL2ZBG4T2LdmB2S+EdhRxC9aY7RBYsu/xGQsRYqs=",
+  "Source": "DomainDrivenTestApp",
+  "BasePath": "_content/DomainDrivenTestApp",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

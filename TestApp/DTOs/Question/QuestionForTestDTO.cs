@@ -5,7 +5,7 @@ public class QuestionForTestDTO()
     public int Id { get; set; }
     public string Text { get; set; }
     public int Difficulty { get; set; }
-    public List<AnswerForQuestionDTO> Answers { get; set; }
+    public List<AnswerDTO> Answers { get; set; }
 
     public class QuestionCreateProfile : Profile{
         public QuestionCreateProfile()
