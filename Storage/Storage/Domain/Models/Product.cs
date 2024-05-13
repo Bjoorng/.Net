@@ -1,4 +1,8 @@
-﻿using Microsoft.VisualStudio.Web.CodeGenerators.Mvc.Templates.Blazor;
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.VisualStudio.Web.CodeGenerators.Mvc.Templates.Blazor;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Data;
 
 namespace Storage.Domain.Models;
 
@@ -31,6 +35,23 @@ public class Product
         if (quantity > 0)
         {
             this.Quantity = quantity;
+        }
+        else
+        {
+            throw new ArgumentOutOfRangeException(nameof(Quantity));
+        }
+    }
+
+    public void UpdateQuantityDelete(int quantity)
+    {
+        this.Quantity += quantity;
+    }
+
+    public void UpdateQuantityOrder(int quantity)
+    {
+        if(this.Quantity > 0)
+        {
+            this.Quantity -= quantity;
         }
         else
         {

@@ -255,3 +255,9 @@ C:\Users\total\source\repos\Storage\Storage\bin\Debug\net8.0\AutoMapper.dll
 C:\Users\total\source\repos\Storage\Storage\bin\Debug\net8.0\FluentValidation.dll
 C:\Users\total\source\repos\Storage\Storage\bin\Debug\net8.0\FluentValidation.AspNetCore.dll
 C:\Users\total\source\repos\Storage\Storage\bin\Debug\net8.0\FluentValidation.DependencyInjectionExtensions.dll
+C:\Users\total\source\repos\Storage\Storage\bin\Debug\net8.0\Antlr3.Runtime.dll
+C:\Users\total\source\repos\Storage\Storage\bin\Debug\net8.0\FluentNHibernate.dll
+C:\Users\total\source\repos\Storage\Storage\bin\Debug\net8.0\Iesi.Collections.dll
+C:\Users\total\source\repos\Storage\Storage\bin\Debug\net8.0\NHibernate.dll
+C:\Users\total\source\repos\Storage\Storage\bin\Debug\net8.0\Remotion.Linq.dll
+C:\Users\total\source\repos\Storage\Storage\bin\Debug\net8.0\Remotion.Linq.EagerFetching.dll

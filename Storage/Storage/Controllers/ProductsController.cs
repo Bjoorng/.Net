@@ -7,7 +7,7 @@ using AutoMapper.QueryableExtensions;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Storage.Domain.DTOs;
+using Storage.Domain.DTOs.ProductDTOs;
 using Storage.Domain.Infrastructure.Data;
 using Storage.Domain.Models;
 
@@ -74,7 +74,7 @@ namespace Storage.Controllers
                     throw;
                 }
             }
-            return NoContent();
+            return Ok(product);
         }
 
         // POST: api/Products
@@ -94,7 +94,7 @@ namespace Storage.Controllers
         public IActionResult DeleteProduct(string sku)
         {
             var product = _context.Products.FirstOrDefault(p => p.Sku == sku);
-            if (product == null)
+            if (!ProductExists(sku))
             {
                 return NotFound();
             }
@@ -102,7 +102,7 @@ namespace Storage.Controllers
             _context.Products.Remove(product);
             _context.SaveChangesAsync();
 
-            return NoContent();
+            return Ok();
         }
 
         private bool ProductExists(string sku)

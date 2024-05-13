@@ -49,6 +49,10 @@
               "target": "Package",
               "version": "[13.0.1, )"
             },
+            "FluentNHibernate": {
+              "target": "Package",
+              "version": "[3.3.0, )"
+            },
             "FluentValidation": {
               "target": "Package",
               "version": "[11.9.1, )"

@@ -1,0 +1,27 @@
+﻿@page "/todo"
+
+<h3>Todo</h3>
+
+<input @bind="TodoName" />
+<button @onclick="AddTodo" />
+
+<ul>
+    @foreach (var item in todoList)
+    {
+        <li>@item.Name</li>
+    }
+</ul>
+
+@code {
+    private List<TodoItem> todoList = new();
+    string TodoName = "";
+
+    void AddTodo()
+    {
+        if (!string.IsNullOrWhiteSpace(TodoName))
+        {
+            todoList.Add(new TodoItem { Name = TodoName });
+            TodoName = string.Empty;
+        }
+    }
+}
