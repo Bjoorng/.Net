@@ -1,14 +1,18 @@
 ﻿@page "/todo"
+@rendermode InteractiveServer
 
-<h3>Todo</h3>
+<h3>Todo (@todoList.Count(item => !item.IsDone))</h3>
 
 <input @bind="TodoName" />
-<button @onclick="AddTodo" />
+<button @onclick="AddTodo">Add Item</button>
 
 <ul>
     @foreach (var item in todoList)
     {
-        <li>@item.Name</li>
+        <li>
+            <input type="checkbox" @bind="item.IsDone" />
+            <input @bind="item.Name" />
+        </li>
     }
 </ul>
 
@@ -20,7 +24,7 @@
     {
         if (!string.IsNullOrWhiteSpace(TodoName))
         {
-            todoList.Add(new TodoItem { Name = TodoName });
+            todoList.Add(new TodoItem { Name = TodoName, IsDone = false });
             TodoName = string.Empty;
         }
     }
