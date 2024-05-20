@@ -1,0 +1,83 @@
+﻿@page "/"
+@inject GamesClient Client
+@inject NavigationManager NavigationManager
+
+@rendermode InteractiveServer
+
+<PageTitle>Catalog</PageTitle>
+
+<div class="container">
+
+    <div>
+        <a class="btn btn-dark" role="button" href="/editgame">Add a Game</a>
+    </div>
+
+    @if (games is null)
+    {
+        <p>Loading...</p>
+    }
+    else
+    {
+        <div class="wrapper mt-3">
+            <table class="table table-striped table-hover">
+                <thead id="tableHead" class="text-end">
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Genre</th>
+                    <th>Price</th>
+                    <th>Release Date</th>
+                    <th></th>
+                </thead>
+                <tbody>
+                    @foreach (var game in games)
+                    {
+                        <tr class="text-end">
+                            <td>@game.Id</td>
+                            <td>@game.Name</td>
+                            <td>@game.Genre</td>
+                            <td>@game.Price.ToString("C")</td>
+                            <td>@game.ReleaseDate</td>
+                            <td>
+                                <div class="icon">
+                                    <a class="btn btn-dark" role="button" href="@GameUrl(game.Id)">
+                                        <i class="bi bi-pencil-fill"></i>
+                                    </a>
+                                    <button class="btn btn-danger" @onclick="() => Delete(game)">
+                                        <i class="bi bi-trash3">
+                                        </i>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    }
+</div>
+
+@code {
+
+    private GameSummary[]? games;
+
+    protected override void OnInitialized()
+    {
+        games = Client.GetGames();
+    }
+
+    private static string GameUrl(int id)
+    {
+        return $"/editgame/{id}";
+    }
+
+    private string GetDeleteModalId(GameSummary game)
+    {
+        return $"#{DeleteGame.GetModalId(game)}";
+    }
+
+    private void Delete(GameSummary game){
+        Client.DeleteGame(game.Id);
+        NavigationManager.Refresh();
+    }
+
+}

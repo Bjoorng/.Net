@@ -1,0 +1,103 @@
+﻿@page "/editgame"
+@page "/editgame/{id:int}"
+
+@inject NavigationManager NavigationManager
+@inject GamesClient GamesClient
+@inject GenresClient GenresClient
+
+@rendermode InteractiveServer
+
+<PageTitle>Add Games</PageTitle>
+
+<h3>@title</h3>
+
+@if (genres is null || newGame is null)
+{
+  <p>Loading...</p>
+}
+else
+{
+  <div>
+    <div class="col-md-4">
+      <EditForm Model="@newGame" FormName="createGame" OnValidSubmit="Submit">
+        <DataAnnotationsValidator />
+        <ValidationSummary />
+        <div class="mb-3">
+          <label for="Name" class="form-label">Name: </label>
+          <InputText id="Name" @bind-Value="newGame.Name" class="form-control" />
+          <ValidationMessage For="() => newGame.Name" />
+        </div>
+        <div class="mb-3">
+          <label for="Genre" class="form-label">Genre: </label>
+          <InputSelect id="Genre" @bind-Value="newGame.GenreId" class="form-select">
+            <option value="">Select a Genre</option>
+            @foreach (var genre in genres)
+            {
+              <option value="@genre.Id">@genre.Name</option>
+            }
+          </InputSelect>
+          <ValidationMessage For="() => newGame.GenreId" />
+        </div>
+        <div class="mb-3">
+          <label for="Price" class="form-label">Price: </label>
+          <InputNumber id="Price" @bind-Value="newGame.Price" class="form-control" />
+          <ValidationMessage For="() => newGame.Price" />
+        </div>
+        <div class="mb-3">
+          <label for="ReleaseDate" class="form-label">Release Date: </label>
+          <InputDate id="ReleaseDate" @bind-Value="newGame.ReleaseDate" class="form-control" />
+        </div>
+        <button type="submit" class="btn btn-dark">Submit</button>
+        <a href="/" role="button" class="btn btn-danger">Cancel</a>
+      </EditForm>
+    </div>
+  </div>
+}
+
+@code {
+
+  [Parameter]
+  public int? Id { get; set; }
+
+  private string? title;
+
+  private Genre[]? genres;
+
+  [SupplyParameterFromForm]
+  private GameCreation? newGame { get; set; }
+
+  protected override void OnParametersSet(){
+    if(newGame is not null){
+      return;
+    }
+    if(Id is not null){
+      newGame = GamesClient.GetGameDetails(Id.Value);
+      title = $"Edit: {newGame.Name}";
+    }else{
+      newGame = new()
+      {
+        Name = string.Empty,
+        ReleaseDate = DateOnly.FromDateTime(DateTime.Now)
+      };
+      title = "Add a new game";
+    }
+  }
+
+  protected override void OnInitialized()
+  {
+    genres = GenresClient.GetGenres();
+  }
+
+  private void Submit()
+  {
+    ArgumentNullException.ThrowIfNull(newGame);
+    if(Id is null){
+      GamesClient.AddGame(newGame);
+    }
+    else{
+      newGame.Id = Id.Value;
+      GamesClient.UpdateGame(newGame);
+    }
+    NavigationManager.NavigateTo("/");
+  }
+}
