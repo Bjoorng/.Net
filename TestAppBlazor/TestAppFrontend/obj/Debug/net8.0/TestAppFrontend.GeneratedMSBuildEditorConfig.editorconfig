@@ -26,16 +26,8 @@ build_property._RazorSourceGeneratorDebug =
 build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/total/source/repos/TestAppBlazor/TestAppFrontend/Pages/Counter.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ291bnRlci5yYXpvcg==
-build_metadata.AdditionalFiles.CssScope = 
-
 [C:/Users/total/source/repos/TestAppBlazor/TestAppFrontend/Pages/Home.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSG9tZS5yYXpvcg==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/total/source/repos/TestAppBlazor/TestAppFrontend/Pages/Weather.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcV2VhdGhlci5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/total/source/repos/TestAppBlazor/TestAppFrontend/_Imports.razor]
