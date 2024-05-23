@@ -10,9 +10,15 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
 builder.Services.AddFastEndpoints()
     .SwaggerDocument();
-builder.Services.AddDbContext<ApplicationDbContext>(opt => {
-    opt.UseInMemoryDatabase(nameof(TodoList));
+//builder.Services.AddDbContext<ApplicationDbContext>(o =>
+//{
+//    o.UseInMemoryDatabase(nameof(TodoList));
+//});
+
+builder.Services.AddDbContext<ApplicationDbContext>(o => {
+    o.UseSqlServer(builder.Configuration.GetConnectionString("Default"));
 });
+
 
 var app = builder.Build();
 
