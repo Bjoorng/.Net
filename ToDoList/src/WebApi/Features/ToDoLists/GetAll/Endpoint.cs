@@ -2,10 +2,11 @@
 using FastEndpoints;
 using Microsoft.EntityFrameworkCore;
 using WebApi.Infrastructure.Data;
+using Shared.Models.ToDoLists;
 
 namespace WebApi.Features.ToDoLists.GetAll;
 
-public class Endpoint(ApplicationDbContext context, AutoMapper.IMapper mapper) : Endpoint<EmptyRequest, List<Response>>
+public class Endpoint(ApplicationDbContext context, AutoMapper.IMapper mapper) : Endpoint<EmptyRequest, List<GetAllResponse>>
 {
     public override void Configure()
     {
@@ -15,7 +16,7 @@ public class Endpoint(ApplicationDbContext context, AutoMapper.IMapper mapper) :
 
     public override async Task HandleAsync(EmptyRequest request, CancellationToken ct)
     {
-        List<Response> lists = await context.TodoLists.ProjectTo<Response>(mapper.ConfigurationProvider).ToListAsync(ct);
+        List<GetAllResponse> lists = await context.TodoLists.ProjectTo<GetAllResponse>(mapper.ConfigurationProvider).ToListAsync(ct);
 
         await SendAsync(lists, cancellation: ct);
     }

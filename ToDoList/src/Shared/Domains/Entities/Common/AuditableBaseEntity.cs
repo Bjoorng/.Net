@@ -1,5 +1,5 @@
 ﻿
-namespace WebApi.Domains.Entities.Common;
+namespace Shared.Domains.Entities.Common;
 
 public abstract class AuditableBaseEntity<TId> : BaseEntity<TId>, IAuditableBaseEntity
 {

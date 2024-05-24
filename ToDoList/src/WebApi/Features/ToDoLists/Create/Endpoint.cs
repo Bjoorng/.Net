@@ -1,11 +1,11 @@
 ﻿using FastEndpoints;
-using WebApi.Domains.Entities;
+using Shared.Domains.Entities;
 using WebApi.Infrastructure.Data;
-using WebApi.Features.ToDoLists.Create;
+using Shared.Models.ToDoLists;
 
 namespace WebApi.Features.ToDoLists.Create;
 
-public class Endpoint(ApplicationDbContext context) : Endpoint<Request, Response>
+public class Endpoint(ApplicationDbContext context) : Endpoint<CreateRequest, CreateResponse>
 {
     public override void Configure()
     {
@@ -13,7 +13,7 @@ public class Endpoint(ApplicationDbContext context) : Endpoint<Request, Response
         AllowAnonymous();
     }
 
-    public override async Task HandleAsync(Request request, CancellationToken ct)
+    public override async Task HandleAsync(CreateRequest request, CancellationToken ct)
     {
         var toDoList = TodoList.Create(request.Title);
         toDoList.CreatedBy = "Luca";
@@ -21,7 +21,7 @@ public class Endpoint(ApplicationDbContext context) : Endpoint<Request, Response
         await context.TodoLists.AddAsync(toDoList, ct);
         await context.SaveChangesAsync();
 
-        await SendAsync(new Response(toDoList.Id), cancellation: ct);
+        await SendAsync(new CreateResponse(toDoList.Id), cancellation: ct);
     }
 
 }

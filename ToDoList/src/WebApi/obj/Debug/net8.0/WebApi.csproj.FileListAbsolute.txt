@@ -35,7 +35,6 @@ C:\Users\total\source\repos\ToDoList\src\WebApi\bin\Debug\net8.0\Microsoft.Ident
 C:\Users\total\source\repos\ToDoList\src\WebApi\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.dll
 C:\Users\total\source\repos\ToDoList\src\WebApi\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
 C:\Users\total\source\repos\ToDoList\src\WebApi\bin\Debug\net8.0\Microsoft.IdentityModel.Tokens.dll
-C:\Users\total\source\repos\ToDoList\src\WebApi\bin\Debug\net8.0\Microsoft.OpenApi.dll
 C:\Users\total\source\repos\ToDoList\src\WebApi\bin\Debug\net8.0\Microsoft.SqlServer.Server.dll
 C:\Users\total\source\repos\ToDoList\src\WebApi\bin\Debug\net8.0\Microsoft.Win32.SystemEvents.dll
 C:\Users\total\source\repos\ToDoList\src\WebApi\bin\Debug\net8.0\Mono.TextTemplating.dll
@@ -51,9 +50,6 @@ C:\Users\total\source\repos\ToDoList\src\WebApi\bin\Debug\net8.0\NSwag.Core.dll
 C:\Users\total\source\repos\ToDoList\src\WebApi\bin\Debug\net8.0\NSwag.Core.Yaml.dll
 C:\Users\total\source\repos\ToDoList\src\WebApi\bin\Debug\net8.0\NSwag.Generation.dll
 C:\Users\total\source\repos\ToDoList\src\WebApi\bin\Debug\net8.0\NSwag.Generation.AspNetCore.dll
-C:\Users\total\source\repos\ToDoList\src\WebApi\bin\Debug\net8.0\Swashbuckle.AspNetCore.Swagger.dll
-C:\Users\total\source\repos\ToDoList\src\WebApi\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerGen.dll
-C:\Users\total\source\repos\ToDoList\src\WebApi\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerUI.dll
 C:\Users\total\source\repos\ToDoList\src\WebApi\bin\Debug\net8.0\System.CodeDom.dll
 C:\Users\total\source\repos\ToDoList\src\WebApi\bin\Debug\net8.0\System.Composition.AttributedModel.dll
 C:\Users\total\source\repos\ToDoList\src\WebApi\bin\Debug\net8.0\System.Composition.Convention.dll

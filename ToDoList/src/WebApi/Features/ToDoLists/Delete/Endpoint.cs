@@ -1,10 +1,11 @@
 ﻿using FastEndpoints;
-using WebApi.Domains.Entities;
+using Shared.Domains.Entities;
 using WebApi.Infrastructure.Data;
+using Shared.Models.ToDoLists;
 
 namespace WebApi.Features.ToDoLists.Delete;
 
-public class Endpoint(ApplicationDbContext context) : Endpoint<Request, EmptyResponse>
+public class Endpoint(ApplicationDbContext context) : Endpoint<DeleteRequest, EmptyResponse>
 {
     public override void Configure()
     {
@@ -12,7 +13,7 @@ public class Endpoint(ApplicationDbContext context) : Endpoint<Request, EmptyRes
         AllowAnonymous();
     }
 
-    public override async Task HandleAsync(Request request, CancellationToken ct)
+    public override async Task HandleAsync(DeleteRequest request, CancellationToken ct)
     {
         TodoList list = await context.TodoLists.FindAsync(request.Id);
 

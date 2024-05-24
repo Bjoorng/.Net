@@ -1,8 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "34HJBdS2LGkmP83SrhGDcYqo+rKveqzAADj/XDtJym3Oz3RVeUlRmU4gGXRlVAUmENzrvutZF3oq4QDdckxAdw==",
+  "dgSpecHash": "JshaWF9buCXR587bEUtHPOzXoVOM5RpJOG7kV6aW7oxABIW8C9O38kBv4HLTok9gKTdlc3dzwpBTPmwiDZqkTw==",
   "success": true,
   "projectFilePath": "C:\\Users\\total\\source\\repos\\ToDoList\\src\\Shared\\Shared.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\total\\.nuget\\packages\\automapper\\13.0.1\\automapper.13.0.1.nupkg.sha512",
+    "C:\\Users\\total\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\6.0.0\\microsoft.extensions.dependencyinjection.abstractions.6.0.0.nupkg.sha512",
+    "C:\\Users\\total\\.nuget\\packages\\microsoft.extensions.options\\6.0.0\\microsoft.extensions.options.6.0.0.nupkg.sha512",
+    "C:\\Users\\total\\.nuget\\packages\\microsoft.extensions.primitives\\6.0.0\\microsoft.extensions.primitives.6.0.0.nupkg.sha512",
+    "C:\\Users\\total\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512"
+  ],
   "logs": []
 }

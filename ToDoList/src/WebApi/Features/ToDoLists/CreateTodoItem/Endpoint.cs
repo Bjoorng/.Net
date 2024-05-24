@@ -1,11 +1,12 @@
 ﻿using FastEndpoints;
 using Microsoft.EntityFrameworkCore;
-using WebApi.Domains.Entities;
+using Shared.Domains.Entities;
 using WebApi.Infrastructure.Data;
+using Shared.Models.ToDoLists;
 
 namespace WebApi.Features.ToDoLists.CreateTodoItem;
 
-public class Endpoint(ApplicationDbContext context) : Endpoint<Request, Response>
+public class Endpoint(ApplicationDbContext context) : Endpoint<CreateItemRequest, CreateItemResponse>
 {
 
     public override void Configure()
@@ -14,7 +15,7 @@ public class Endpoint(ApplicationDbContext context) : Endpoint<Request, Response
         AllowAnonymous();
     }
 
-    public override async Task HandleAsync(Request request, CancellationToken ct)
+    public override async Task HandleAsync(CreateItemRequest request, CancellationToken ct)
     {
         TodoList? todoList = await context.TodoLists.Include(x => x.Items).FirstOrDefaultAsync(x => x.Id == request.TodoListId);
         
@@ -24,9 +25,11 @@ public class Endpoint(ApplicationDbContext context) : Endpoint<Request, Response
         }
 
         ListItem todoItem = todoList.AddItem(request.Text);
+        todoList.CheckList();
+        context.Update(todoList);
         await context.SaveChangesAsync();
 
-        await SendAsync(new Response(todoItem.Id), cancellation: ct);
+        await SendAsync(new CreateItemResponse(todoItem.Id), cancellation: ct);
     }
 
 }

@@ -1,12 +1,13 @@
 using FastEndpoints;
 using FastEndpoints.Swagger;
 using Microsoft.EntityFrameworkCore;
+using Shared.Services;
 using System.Reflection;
-using WebApi.Domains.Entities;
 using WebApi.Infrastructure.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddMyLibraryServices();
 builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
 builder.Services.AddFastEndpoints()
     .SwaggerDocument();

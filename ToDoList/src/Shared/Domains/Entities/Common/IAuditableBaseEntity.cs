@@ -1,4 +1,4 @@
-﻿namespace WebApi.Domains.Entities.Common;
+﻿namespace Shared.Domains.Entities.Common;
 
 public interface IAuditableBaseEntity
 {

@@ -1,7 +1,7 @@
 ﻿using System.Text.Json.Serialization;
-using WebApi.Domains.Entities.Common;
+using Shared.Domains.Entities.Common;
 
-namespace WebApi.Domains.Entities;
+namespace Shared.Domains.Entities;
 
 public class ListItem : AuditableBaseEntity<Guid>
 {
@@ -21,5 +21,13 @@ public class ListItem : AuditableBaseEntity<Guid>
     public static ListItem Create(string text, Guid todoListId)
     {
         return new ListItem(text, false, todoListId);
+    }
+
+    public void Update(string text, bool isDone)
+    {
+        Text = text;
+        IsDone = isDone;
+        LastModifiedBy = "Luca";
+        LastModifiedIn = DateTime.UtcNow;
     }
 }

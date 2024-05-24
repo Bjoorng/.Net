@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "BLw+QiL0vdBZ1hSNCI7OMSnO0HjqXwQNq9pdqm1eLtEU55Q9a3Dx1thvpiFx3zwOC47PrIUsD+LGk28njPKL0Q==",
+  "dgSpecHash": "xZk0UmpGTqrOOr8LfZ1rjemOEXJMjit7RkCojJE5mevD+485kfCdlCxG3jZXVGwRpnmuS8aWdIDVosfkYuHGQg==",
   "success": true,
   "projectFilePath": "C:\\Users\\total\\source\\repos\\ToDoList\\src\\WebApp\\WebApp.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\total\\.nuget\\packages\\automapper\\13.0.1\\automapper.13.0.1.nupkg.sha512",
     "C:\\Users\\total\\.nuget\\packages\\microsoft.aspnetcore.authorization\\8.0.5\\microsoft.aspnetcore.authorization.8.0.5.nupkg.sha512",
     "C:\\Users\\total\\.nuget\\packages\\microsoft.aspnetcore.components\\8.0.5\\microsoft.aspnetcore.components.8.0.5.nupkg.sha512",
     "C:\\Users\\total\\.nuget\\packages\\microsoft.aspnetcore.components.analyzers\\8.0.5\\microsoft.aspnetcore.components.analyzers.8.0.5.nupkg.sha512",

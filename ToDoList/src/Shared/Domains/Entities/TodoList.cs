@@ -1,6 +1,6 @@
-﻿using WebApi.Domains.Entities.Common;
+﻿using Shared.Domains.Entities.Common;
 
-namespace WebApi.Domains.Entities;
+namespace Shared.Domains.Entities;
 
 public class TodoList : AuditableBaseEntity<Guid>
 {
@@ -20,21 +20,18 @@ public class TodoList : AuditableBaseEntity<Guid>
         return new TodoList(Guid.NewGuid(), title, false);
     }
 
-    //public void CheckList()
-    //{
-    //    int counter = 0;
-    //    foreach (var item in Items)
-    //    {
-    //        if (item.IsDone)
-    //        {
-    //            counter++;
-    //        }
-    //    }
-    //    if(counter == Items.Count && counter > 0 && Items.Count > 0)
-    //    {
-    //        IsDone = true;
-    //    }
-    //}
+    public string ChangeTitle(string text)
+    {
+        Title = text;
+        LastModifiedBy = "Luca";
+        LastModifiedIn = DateTime.UtcNow;
+        return Title;
+    }
+
+    public void CheckList()
+    {
+        IsDone = Items != null && Items.Count > 0 && Items.All(item => item.IsDone);
+    }
 
     public ListItem AddItem(string text)
     {
