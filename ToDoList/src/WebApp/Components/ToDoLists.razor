@@ -2,12 +2,13 @@
 @using WebApp.Services.TodoList;
 @inject HttpClient Http;
 @inject NavigationManager Navigation;
+@inject GetAllClient GetAllClient;
 
 <h3>ToDoLists</h3>
 
-@if (todoList != null)
+@if (todoLists != null)
 {
-    foreach (var item in todoList)
+    foreach (var item in todoLists)
     {
         <div class="d-flex align-items-center justify-content-between">
             <div class="d-flex flex-column">
@@ -27,23 +28,24 @@ else
 @code {
 
 
-    public IEnumerable<GetAllResponse> todoList { get; set; }
-    private const string Url = "http://localhost:5102/api/todo-lists";
-
-    private GetAllService GetAllService { get; set; }
+    IEnumerable<GetAllResponse> todoLists { get; set; }
 
     protected override async Task OnInitializedAsync()
     {
         try
         {
-            todoList = await GetAllService.GetAllAsync(Url);
-
+            todoLists = await GetAllClient.GetAllAsync();
         }
         catch (Exception e)
         {
             Console.Write(e);
         }
 
+    }
+
+    public void GetDetails()
+    {
+        Navigation.NavigateTo()
     }
 
 }
