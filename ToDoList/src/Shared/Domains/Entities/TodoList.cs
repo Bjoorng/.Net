@@ -1,4 +1,5 @@
 ﻿using Shared.Domains.Entities.Common;
+using System.Text.Json.Serialization;
 
 namespace Shared.Domains.Entities;
 
@@ -8,6 +9,7 @@ public class TodoList : AuditableBaseEntity<Guid>
     public bool IsDone { get; private set; }
     public List<ListItem>? Items { get; private set; }
 
+    [JsonConstructor]
     private TodoList(Guid id, string title, bool isDone) : base(id)
     {
         Title = title;

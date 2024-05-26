@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "k3URup39a0QD86PJnzR9DMQWS3TMb48IIMN7fXlD3Ws=",
+  "Hash": "QiOkarBVGql3QsVxytL1c3U58D1Uf38FAcxVM1m6OTI=",
   "Source": "WebApp",
   "BasePath": "/",
   "Mode": "Root",
@@ -16,6 +16,25 @@
     }
   ],
   "Assets": [
+    {
+      "Identity": "C:\\Users\\total\\source\\repos\\ToDoList\\src\\WebApp\\bin\\Debug\\net8.0\\wwwroot\\_framework\\AutoMapper.wasm",
+      "SourceId": "WebApp",
+      "SourceType": "Computed",
+      "ContentRoot": "C:\\Users\\total\\source\\repos\\ToDoList\\src\\WebApp\\bin\\Debug\\net8.0\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "_framework/AutoMapper.wasm",
+      "AssetKind": "Build",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "WasmResource",
+      "AssetTraitValue": "runtime",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "Never",
+      "OriginalItemSpec": "C:\\Users\\total\\source\\repos\\ToDoList\\src\\WebApp\\obj\\Debug\\net8.0\\webcil\\AutoMapper.wasm"
+    },
     {
       "Identity": "C:\\Users\\total\\source\\repos\\ToDoList\\src\\WebApp\\bin\\Debug\\net8.0\\wwwroot\\_framework\\blazor.boot.json",
       "SourceId": "WebApp",
@@ -7824,6 +7843,25 @@
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "C:\\Users\\total\\source\\repos\\ToDoList\\src\\WebApp\\bin\\Debug\\net8.0\\wwwroot\\_framework\\System.Reflection.Emit.Lightweight.wasm"
+    },
+    {
+      "Identity": "C:\\Users\\total\\source\\repos\\ToDoList\\src\\WebApp\\obj\\Debug\\net8.0\\compressed\\zrfwwyhxzm.gz",
+      "SourceId": "WebApp",
+      "SourceType": "Computed",
+      "ContentRoot": "C:\\Users\\total\\source\\repos\\ToDoList\\src\\WebApp\\bin\\Debug\\net8.0\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "_framework/AutoMapper.wasm.gz",
+      "AssetKind": "Build",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "C:\\Users\\total\\source\\repos\\ToDoList\\src\\WebApp\\bin\\Debug\\net8.0\\wwwroot\\_framework\\AutoMapper.wasm",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "Never",
+      "OriginalItemSpec": "C:\\Users\\total\\source\\repos\\ToDoList\\src\\WebApp\\bin\\Debug\\net8.0\\wwwroot\\_framework\\AutoMapper.wasm"
     },
     {
       "Identity": "C:\\Users\\total\\source\\repos\\ToDoList\\src\\WebApp\\obj\\Debug\\net8.0\\compressed\\zttf7k1rj2.gz",

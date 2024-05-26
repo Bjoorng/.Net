@@ -1,0 +1,49 @@
+﻿@using Shared.Models.ToDoLists;
+@using WebApp.Services.TodoList;
+@inject HttpClient Http;
+@inject NavigationManager Navigation;
+
+<h3>ToDoLists</h3>
+
+@if (todoList != null)
+{
+    foreach (var item in todoList)
+    {
+        <div class="d-flex align-items-center justify-content-between">
+            <div class="d-flex flex-column">
+                <div>@item.Id</div>
+                <div>@item.Title</div>
+            </div>
+            <button class="btn btn-dark">Details</button>
+        </div>
+    }
+}
+else
+{
+    <div>Nothing In Db</div>
+}
+
+
+@code {
+
+
+    public IEnumerable<GetAllResponse> todoList { get; set; }
+    private const string Url = "http://localhost:5102/api/todo-lists";
+
+    private GetAllService GetAllService { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            todoList = await GetAllService.GetAllAsync(Url);
+
+        }
+        catch (Exception e)
+        {
+            Console.Write(e);
+        }
+
+    }
+
+}

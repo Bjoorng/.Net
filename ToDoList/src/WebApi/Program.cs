@@ -7,6 +7,8 @@ using WebApi.Infrastructure.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddControllers().AddNewtonsoftJson();
+builder.Services.AddCors(o => o.AddDefaultPolicy(policy => policy.AllowAnyHeader().AllowAnyOrigin().AllowAnyMethod()));
 builder.Services.AddMyLibraryServices();
 builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
 builder.Services.AddFastEndpoints()
@@ -25,6 +27,7 @@ var app = builder.Build();
 
 app.MapGet("/", () => "Hello World");
 
+app.UseCors();
 app.UseFastEndpoints().UseSwaggerGen();
 
 app.Run();
