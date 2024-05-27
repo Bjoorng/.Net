@@ -18,6 +18,14 @@ public class ListItem : AuditableBaseEntity<Guid>
         TodoListId = todoListId;
     }
 
+    [JsonConstructor]
+    private ListItem(Guid id, string text, bool isDone, Guid todoListId) : base(id)
+    {
+        Text = text;
+        IsDone = isDone;
+        TodoListId = todoListId;
+    }
+
     public static ListItem Create(string text, Guid todoListId)
     {
         return new ListItem(text, false, todoListId);
@@ -27,6 +35,13 @@ public class ListItem : AuditableBaseEntity<Guid>
     {
         Text = text;
         IsDone = isDone;
+        LastModifiedBy = "Luca";
+        LastModifiedIn = DateTime.UtcNow;
+    }
+
+    public void UpdateDone()
+    {
+        IsDone = !IsDone;
         LastModifiedBy = "Luca";
         LastModifiedIn = DateTime.UtcNow;
     }

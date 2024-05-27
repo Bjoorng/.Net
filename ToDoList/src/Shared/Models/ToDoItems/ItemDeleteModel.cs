@@ -1,3 +1,3 @@
 ﻿namespace Shared.Models.ToDoItems;
 
-public record DeleteRequest(Guid Id);
+public record ItemDeleteRequest(Guid Id);

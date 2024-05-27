@@ -22,7 +22,7 @@ namespace WebApi.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("WebApi.Domains.Entities.ListItem", b =>
+            modelBuilder.Entity("Shared.Domains.Entities.ListItem", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -58,7 +58,7 @@ namespace WebApi.Migrations
                     b.ToTable("ListItems");
                 });
 
-            modelBuilder.Entity("WebApi.Domains.Entities.TodoList", b =>
+            modelBuilder.Entity("Shared.Domains.Entities.TodoList", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -89,9 +89,9 @@ namespace WebApi.Migrations
                     b.ToTable("TodoLists");
                 });
 
-            modelBuilder.Entity("WebApi.Domains.Entities.ListItem", b =>
+            modelBuilder.Entity("Shared.Domains.Entities.ListItem", b =>
                 {
-                    b.HasOne("WebApi.Domains.Entities.TodoList", "TodoList")
+                    b.HasOne("Shared.Domains.Entities.TodoList", "TodoList")
                         .WithMany("Items")
                         .HasForeignKey("TodoListId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -100,7 +100,7 @@ namespace WebApi.Migrations
                     b.Navigation("TodoList");
                 });
 
-            modelBuilder.Entity("WebApi.Domains.Entities.TodoList", b =>
+            modelBuilder.Entity("Shared.Domains.Entities.TodoList", b =>
                 {
                     b.Navigation("Items");
                 });

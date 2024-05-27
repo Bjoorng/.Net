@@ -1,21 +1,22 @@
-﻿@using Shared.Models.ToDoLists;
-@using WebApp.Services.TodoList;
-@inject HttpClient Http;
-@inject NavigationManager Navigation;
+﻿@inject NavigationManager Navigation;
 @inject GetAllClient GetAllClient;
 
 <h3>ToDoLists</h3>
 
 @if (todoLists != null)
 {
-    foreach (var item in todoLists)
+    foreach (var list in todoLists)
     {
         <div class="d-flex align-items-center justify-content-between">
             <div class="d-flex flex-column">
-                <div>@item.Id</div>
-                <div>@item.Title</div>
+                <div>@list.Title</div>
+                <div>@list.IsDone</div>
             </div>
-            <button class="btn btn-dark">Details</button>
+            <div>
+                <button class="btn btn-dark" @onclick="() => GetDetails(list.Id)"><i class="fa-solid fa-circle-info"></i></button>
+                <button class="btn btn-success"><i class="fa-solid fa-pen-to-square"></i></button>
+                <button class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
+            </div>
         </div>
     }
 }
@@ -43,9 +44,11 @@ else
 
     }
 
-    public void GetDetails()
+    public void GetDetails(Guid id)
     {
-        Navigation.NavigateTo()
+        Navigation.NavigateTo($"details/{id}");
     }
+
+
 
 }

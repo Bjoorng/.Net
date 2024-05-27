@@ -20,6 +20,7 @@ public class Endpoint(ApplicationDbContext context) : Endpoint<UpdateRequest, Up
         {
             await SendNotFoundAsync(ct);
         }
+
         list.ChangeTitle(req.Text);
 
         await context.SaveChangesAsync(ct);

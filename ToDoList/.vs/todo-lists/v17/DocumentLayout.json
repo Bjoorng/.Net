@@ -3,16 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\total\\source\\repos\\ToDoList\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{29E1E112-DA22-4D3C-8239-0E2C858FF954}|src\\WebApp\\WebApp.csproj|c:\\users\\total\\source\\repos\\todolist\\src\\webapp\\components\\todolists.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{29E1E112-DA22-4D3C-8239-0E2C858FF954}|src\\WebApp\\WebApp.csproj|solutionrelative:src\\webapp\\components\\todolists.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{29E1E112-DA22-4D3C-8239-0E2C858FF954}|src\\WebApp\\WebApp.csproj|c:\\users\\total\\source\\repos\\todolist\\src\\webapp\\pages\\listdetails.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{29E1E112-DA22-4D3C-8239-0E2C858FF954}|src\\WebApp\\WebApp.csproj|solutionrelative:src\\webapp\\pages\\listdetails.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{29E1E112-DA22-4D3C-8239-0E2C858FF954}|src\\WebApp\\WebApp.csproj|c:\\users\\total\\source\\repos\\todolist\\src\\webapp\\clients\\todolists\\getallclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{29E1E112-DA22-4D3C-8239-0E2C858FF954}|src\\WebApp\\WebApp.csproj|solutionrelative:src\\webapp\\clients\\todolists\\getallclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{29E1E112-DA22-4D3C-8239-0E2C858FF954}|src\\WebApp\\WebApp.csproj|c:\\users\\total\\source\\repos\\todolist\\src\\webapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{29E1E112-DA22-4D3C-8239-0E2C858FF954}|src\\WebApp\\WebApp.csproj|solutionrelative:src\\webapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{29E1E112-DA22-4D3C-8239-0E2C858FF954}|src\\WebApp\\WebApp.csproj|c:\\users\\total\\source\\repos\\todolist\\src\\webapp\\pages\\updateitem.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{29E1E112-DA22-4D3C-8239-0E2C858FF954}|src\\WebApp\\WebApp.csproj|solutionrelative:src\\webapp\\pages\\updateitem.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,45 +22,32 @@
           "Children": [
             {
               "$type": "Bookmark",
-              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+              "Name": "ST:0:0:{6d4078d1-5951-4ed1-ac0e-0a8099c1cce5}"
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "ToDoLists.razor",
-              "DocumentMoniker": "C:\\Users\\total\\source\\repos\\ToDoList\\src\\WebApp\\Components\\ToDoLists.razor",
-              "RelativeDocumentMoniker": "src\\WebApp\\Components\\ToDoLists.razor",
-              "ToolTip": "C:\\Users\\total\\source\\repos\\ToDoList\\src\\WebApp\\Components\\ToDoLists.razor",
-              "RelativeToolTip": "src\\WebApp\\Components\\ToDoLists.razor",
-              "ViewState": "AQIAAAkAAAAAAAAAAAAAAC8AAAAeAAAA",
+              "Title": "ListDetails.razor",
+              "DocumentMoniker": "C:\\Users\\total\\source\\repos\\ToDoList\\src\\WebApp\\Pages\\ListDetails.razor",
+              "RelativeDocumentMoniker": "src\\WebApp\\Pages\\ListDetails.razor",
+              "ToolTip": "C:\\Users\\total\\source\\repos\\ToDoList\\src\\WebApp\\Pages\\ListDetails.razor",
+              "RelativeToolTip": "src\\WebApp\\Pages\\ListDetails.razor",
+              "ViewState": "AQIAADYAAAAAAAAAAAAAAEIAAAAEAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-05-26T10:23:48.2Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\total\\source\\repos\\ToDoList\\src\\WebApp\\Program.cs",
-              "RelativeDocumentMoniker": "src\\WebApp\\Program.cs",
-              "ToolTip": "C:\\Users\\total\\source\\repos\\ToDoList\\src\\WebApp\\Program.cs",
-              "RelativeToolTip": "src\\WebApp\\Program.cs",
-              "ViewState": "AQIAAAYAAAAAAAAAAAAAAAoAAAA1AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-26T10:21:34.719Z",
+              "WhenOpened": "2024-05-27T20:46:03.216Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "GetAllClient.cs",
-              "DocumentMoniker": "C:\\Users\\total\\source\\repos\\ToDoList\\src\\WebApp\\Clients\\TodoLists\\GetAllClient.cs",
-              "RelativeDocumentMoniker": "src\\WebApp\\Clients\\TodoLists\\GetAllClient.cs",
-              "ToolTip": "C:\\Users\\total\\source\\repos\\ToDoList\\src\\WebApp\\Clients\\TodoLists\\GetAllClient.cs",
-              "RelativeToolTip": "src\\WebApp\\Clients\\TodoLists\\GetAllClient.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAAEAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-26T10:00:55.118Z",
+              "Title": "UpdateItem.razor",
+              "DocumentMoniker": "C:\\Users\\total\\source\\repos\\ToDoList\\src\\WebApp\\Pages\\UpdateItem.razor",
+              "RelativeDocumentMoniker": "src\\WebApp\\Pages\\UpdateItem.razor",
+              "ToolTip": "C:\\Users\\total\\source\\repos\\ToDoList\\src\\WebApp\\Pages\\UpdateItem.razor",
+              "RelativeToolTip": "src\\WebApp\\Pages\\UpdateItem.razor",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABUAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-05-27T20:45:59.2Z",
               "EditorCaption": ""
             }
           ]

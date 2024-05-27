@@ -38,6 +38,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSG9tZS5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/total/source/repos/ToDoList/src/WebApp/Pages/UpdateItem.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVXBkYXRlSXRlbS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/total/source/repos/ToDoList/src/WebApp/Pages/Weather.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcV2VhdGhlci5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
@@ -53,3 +57,7 @@ build_metadata.AdditionalFiles.CssScope = b-jzswhejw2w
 [C:/Users/total/source/repos/ToDoList/src/WebApp/Layout/NavMenu.razor]
 build_metadata.AdditionalFiles.TargetPath = TGF5b3V0XE5hdk1lbnUucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-hz8r36apm9
+
+[C:/Users/total/source/repos/ToDoList/src/WebApp/Pages/ListDetails.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTGlzdERldGFpbHMucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-ajpd5ogq4v

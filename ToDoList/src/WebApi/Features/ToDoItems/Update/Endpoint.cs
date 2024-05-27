@@ -5,7 +5,7 @@ using Shared.Domains.Entities;
 
 namespace WebApi.Features.ToDoItems.Update;
 
-public class Endpoint(ApplicationDbContext context, AutoMapper.IMapper mapper) : Endpoint<UpdateRequest, UpdateResponse>
+public class Endpoint(ApplicationDbContext context, AutoMapper.IMapper mapper) : Endpoint<ItemUpdateRequest, ItemUpdateResponse>
 {
     public override void Configure()
     {
@@ -13,7 +13,7 @@ public class Endpoint(ApplicationDbContext context, AutoMapper.IMapper mapper) :
         AllowAnonymous();
     }
 
-    public override async Task HandleAsync(UpdateRequest request, CancellationToken ct)
+    public override async Task HandleAsync(ItemUpdateRequest request, CancellationToken ct)
     {
         ListItem? item = await context.ListItems.FindAsync(request.Id);
         TodoList? list = await context.TodoLists.FindAsync(item.TodoListId);
@@ -28,6 +28,6 @@ public class Endpoint(ApplicationDbContext context, AutoMapper.IMapper mapper) :
 
         await context.SaveChangesAsync();
 
-        await SendAsync(new UpdateResponse(item.Text, item.IsDone), cancellation: ct);
+        await SendAsync(new ItemUpdateResponse(item.Text, item.IsDone), cancellation: ct);
     }
 }

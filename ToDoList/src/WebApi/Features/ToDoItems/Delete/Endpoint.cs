@@ -6,7 +6,7 @@ using Shared.Models.ToDoItems;
 
 namespace WebApi.Features.ToDoItems.Delete;
 
-public class Endpoint(ApplicationDbContext context) : Endpoint<DeleteRequest, EmptyResponse>
+public class Endpoint(ApplicationDbContext context) : Endpoint<ItemDeleteRequest, EmptyResponse>
 {
     public override void Configure()
     {
@@ -14,7 +14,7 @@ public class Endpoint(ApplicationDbContext context) : Endpoint<DeleteRequest, Em
         AllowAnonymous();
     }
 
-    public override async Task HandleAsync(DeleteRequest req, CancellationToken ct)
+    public override async Task HandleAsync(ItemDeleteRequest req, CancellationToken ct)
     {
         ListItem? item = await context.ListItems.FindAsync(req.Id);
         TodoList? list = await context.TodoLists.Include(x => x.Items).FirstOrDefaultAsync(x => x.Id == item.TodoListId);

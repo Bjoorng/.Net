@@ -24,7 +24,7 @@ public class Endpoint(ApplicationDbContext context) : Endpoint<CreateItemRequest
             await SendNotFoundAsync(ct);
         }
 
-        ListItem todoItem = todoList.AddItem(request.Text);
+        ListItem todoItem = todoList.AddItem(request.Title);    
         todoList.CheckList();
         context.Update(todoList);
         await context.SaveChangesAsync();

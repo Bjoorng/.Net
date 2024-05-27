@@ -1,7 +1,4 @@
-﻿using Shared.Models.ToDoLists;
-using System.Net.Http.Json;
-
-namespace WebApp.Services.TodoList;
+﻿namespace WebApp.Clients.TodoLists;
 
 public class GetAllClient
 {

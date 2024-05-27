@@ -1,0 +1,67 @@
+﻿@inject UpdateItemClient UpdateItemClient;
+@inject GetItemByIdClient GetItemByIdClient;
+@inject NavigationManager Navigation;
+
+@page "/updateItem/{id:guid}"
+
+<h3>UpdateItem</h3>
+
+@if (item != null)
+{
+    <EditForm Model="formModel" OnValidSubmit="() => UpdateTitle(Id)" id="updateForm" class="displayNone">
+        <InputText @bind-Value="formModel.Title" placeholder="@item.Text" class="form-control"></InputText>
+        <InputSelect @bind-Value="formModel.IsDone" class="form-control">
+            <option value=""> -- Select -- </option>
+            <option value="true">true</option>
+            <option value="false">false</option>
+        </InputSelect>
+        <button class="btn btn-primary" type="submit">Save</button>
+    </EditForm>
+}
+else
+{
+    <div>Loading...</div>
+}
+
+@code {
+
+    [Parameter]
+    public Guid Id { get; set; }
+
+    private ItemByIdResponse item { get; set; }
+
+    private FormModel formModel = new();
+
+    public class FormModel
+    {
+        public string Title { get; set; }
+
+        public bool IsDone { get; set; }
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            item = await GetItemByIdClient.GetByIdAsync(Id);
+        }
+        catch (Exception e)
+        {
+            Console.Write(e);
+        }
+    }
+
+    public async Task UpdateTitle(Guid itemId)
+    {
+        try
+        {
+            var updateRequest = new ItemUpdateRequest(itemId, formModel.Title, formModel.IsDone);
+            await UpdateItemClient.UpdateItemAsync(itemId, updateRequest);
+            Navigation.NavigateTo($"/details/{item.ListId}");
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+        }
+    }
+}

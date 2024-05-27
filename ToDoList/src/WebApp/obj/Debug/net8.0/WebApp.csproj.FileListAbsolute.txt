@@ -1044,3 +1044,5 @@ C:\Users\total\source\repos\ToDoList\src\WebApp\bin\Debug\net8.0\wwwroot\_framew
 C:\Users\total\source\repos\ToDoList\src\WebApp\bin\Debug\net8.0\AutoMapper.dll
 C:\Users\total\source\repos\ToDoList\src\WebApp\obj\Debug\net8.0\webcil\AutoMapper.wasm
 C:\Users\total\source\repos\ToDoList\src\WebApp\obj\Debug\net8.0\compressed\zrfwwyhxzm.gz
+C:\Users\total\source\repos\ToDoList\src\WebApp\obj\Debug\net8.0\scopedcss\Pages\ListDetails.razor.rz.scp.css
+C:\Users\total\source\repos\ToDoList\src\WebApp\bin\Debug\net8.0\libman.json
