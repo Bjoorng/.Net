@@ -108,6 +108,19 @@ else
         }
     }
 
+    private async Task LoadListsAsync()
+    {
+        try
+        {
+            list = await GetByIdClient.GetByIdAsync(Id);
+            await LoadListsAsync();
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+        }
+    }
+
     public async Task AddItem()
     {
         try
@@ -115,7 +128,7 @@ else
             CreateItemRequest createItemRequest = new(itemTitle, Id);
             await CreateItemClient.CreateItemAsync(createItemRequest, Id);
             itemTitle = string.Empty;
-            list = await GetByIdClient.GetByIdAsync(Id);
+            await LoadListsAsync();
         }
         catch (Exception e)
         {
@@ -129,7 +142,7 @@ else
         {
             var itemUpdateDoneRequest = new ItemUpdateDoneRequest(itemId);
             await UpdateItemDoneClient.UpdateItemDoneAsync(itemUpdateDoneRequest.Id, itemUpdateDoneRequest);
-            list = await GetByIdClient.GetByIdAsync(Id);
+            await LoadListsAsync();
         }
         catch (Exception e)
         {
@@ -142,7 +155,7 @@ else
         try
         {
             await DeleteItemClient.DeleteItemAsync(itemId);
-            list = await GetByIdClient.GetByIdAsync(Id);
+            await LoadListsAsync();
         }
         catch (Exception e)
         {
@@ -154,7 +167,7 @@ else
     {
         Navigation.NavigateTo($"updateItem/{id}");
     }
-    
+
     public void GoToUpdateList(Guid id)
     {
         Navigation.NavigateTo($"updateList/{id}");

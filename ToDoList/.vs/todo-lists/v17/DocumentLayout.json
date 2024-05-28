@@ -3,6 +3,14 @@
   "WorkspaceRootPath": "C:\\Users\\total\\source\\repos\\ToDoList\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{29E1E112-DA22-4D3C-8239-0E2C858FF954}|src\\WebApp\\WebApp.csproj|c:\\users\\total\\source\\repos\\todolist\\src\\webapp\\pages\\listdetails.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{29E1E112-DA22-4D3C-8239-0E2C858FF954}|src\\WebApp\\WebApp.csproj|solutionrelative:src\\webapp\\pages\\listdetails.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{99DF1D75-90EF-4D03-8DA6-9F65DB4D31B2}|src\\WebApi\\WebApi.csproj|c:\\users\\total\\source\\repos\\todolist\\src\\webapi\\infrastructure\\data\\interceptor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{99DF1D75-90EF-4D03-8DA6-9F65DB4D31B2}|src\\WebApi\\WebApi.csproj|solutionrelative:src\\webapi\\infrastructure\\data\\interceptor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{29E1E112-DA22-4D3C-8239-0E2C858FF954}|src\\WebApp\\WebApp.csproj|c:\\users\\total\\source\\repos\\todolist\\src\\webapp\\components\\todolists.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{29E1E112-DA22-4D3C-8239-0E2C858FF954}|src\\WebApp\\WebApp.csproj|solutionrelative:src\\webapp\\components\\todolists.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
@@ -13,10 +21,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{29E1E112-DA22-4D3C-8239-0E2C858FF954}|src\\WebApp\\WebApp.csproj|c:\\users\\total\\source\\repos\\todolist\\src\\webapp\\pages\\updatelist.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{29E1E112-DA22-4D3C-8239-0E2C858FF954}|src\\WebApp\\WebApp.csproj|solutionrelative:src\\webapp\\pages\\updatelist.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{29E1E112-DA22-4D3C-8239-0E2C858FF954}|src\\WebApp\\WebApp.csproj|c:\\users\\total\\source\\repos\\todolist\\src\\webapp\\pages\\listdetails.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{29E1E112-DA22-4D3C-8239-0E2C858FF954}|src\\WebApp\\WebApp.csproj|solutionrelative:src\\webapp\\pages\\listdetails.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,37 +34,50 @@
           "Children": [
             {
               "$type": "Bookmark",
-              "Name": "ST:0:0:{6d4078d1-5951-4ed1-ac0e-0a8099c1cce5}"
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 1,
+              "Title": "Interceptor.cs",
+              "DocumentMoniker": "C:\\Users\\total\\source\\repos\\ToDoList\\src\\WebApi\\Infrastructure\\Data\\Interceptor.cs",
+              "RelativeDocumentMoniker": "src\\WebApi\\Infrastructure\\Data\\Interceptor.cs",
+              "ToolTip": "C:\\Users\\total\\source\\repos\\ToDoList\\src\\WebApi\\Infrastructure\\Data\\Interceptor.cs",
+              "RelativeToolTip": "src\\WebApi\\Infrastructure\\Data\\Interceptor.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAlAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-28T13:09:27.76Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
               "Title": "ListDetails.razor",
               "DocumentMoniker": "C:\\Users\\total\\source\\repos\\ToDoList\\src\\WebApp\\Pages\\ListDetails.razor",
               "RelativeDocumentMoniker": "src\\WebApp\\Pages\\ListDetails.razor",
               "ToolTip": "C:\\Users\\total\\source\\repos\\ToDoList\\src\\WebApp\\Pages\\ListDetails.razor",
               "RelativeToolTip": "src\\WebApp\\Pages\\ListDetails.razor",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABQAAABqAAAA",
+              "ViewState": "AQIAAFYAAAAAAAAAAAAIwGYAAAA4AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2024-05-28T12:31:36.186Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "ToDoLists.razor",
               "DocumentMoniker": "C:\\Users\\total\\source\\repos\\ToDoList\\src\\WebApp\\Components\\ToDoLists.razor",
               "RelativeDocumentMoniker": "src\\WebApp\\Components\\ToDoLists.razor",
               "ToolTip": "C:\\Users\\total\\source\\repos\\ToDoList\\src\\WebApp\\Components\\ToDoLists.razor",
               "RelativeToolTip": "src\\WebApp\\Components\\ToDoLists.razor",
-              "ViewState": "AQIAAAEAAAAAAAAAAAAAABAAAAAXAAAA",
+              "ViewState": "AQIAAEMAAAAAAAAAAAAgwGAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2024-05-28T12:31:25.608Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "UpdateList.razor",
               "DocumentMoniker": "C:\\Users\\total\\source\\repos\\ToDoList\\src\\WebApp\\Pages\\UpdateList.razor",
               "RelativeDocumentMoniker": "src\\WebApp\\Pages\\UpdateList.razor",
@@ -73,7 +90,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "UpdateItem.razor",
               "DocumentMoniker": "C:\\Users\\total\\source\\repos\\ToDoList\\src\\WebApp\\Pages\\UpdateItem.razor",
               "RelativeDocumentMoniker": "src\\WebApp\\Pages\\UpdateItem.razor",

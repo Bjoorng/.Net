@@ -55,6 +55,19 @@ else
 
     }
 
+    private async Task LoadListsAsync()
+    {
+        try
+        {
+            todoLists = await GetAllClient.GetAllAsync();
+            StateHasChanged();
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+        }
+    }
+
     public void GetDetails(Guid id)
     {
         Navigation.NavigateTo($"details/{id}");
@@ -67,7 +80,7 @@ else
             CreateRequest request = new(listTitle);
             await CreateListClient.CreateList(request);
             listTitle = string.Empty;
-            todoLists = await GetAllClient.GetAllAsync();
+            await LoadListsAsync();
         }
         catch (Exception e)
         {
@@ -80,7 +93,7 @@ else
         try
         {
             await DeleteListClient.DeleteListAsync(Id);
-            todoLists = await GetAllClient.GetAllAsync();
+            await LoadListsAsync();
         }
         catch (Exception e)
         {
