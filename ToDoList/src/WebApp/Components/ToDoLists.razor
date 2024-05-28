@@ -1,8 +1,19 @@
 ﻿@inject NavigationManager Navigation;
 @inject GetAllClient GetAllClient;
+@inject CreateListClient CreateListClient;
+@inject DeleteListClient DeleteListClient;
 
 <h3>ToDoLists</h3>
 
+<div>Add List</div>
+<div>
+    <EditForm Model="listTitle" OnValidSubmit="CreateList">
+        <div class="d-flex mb-5">
+            <InputText class="form-control form-control-lg me-3" @bind-Value="listTitle"></InputText>
+            <button type="submit" class="btn btn-primary">Add <i class="fa-solid fa-save"></i></button>
+        </div>
+    </EditForm>
+</div>
 @if (todoLists != null)
 {
     foreach (var list in todoLists)
@@ -13,9 +24,9 @@
                 <div>@list.IsDone</div>
             </div>
             <div>
-                <button class="btn btn-dark" @onclick="() => GetDetails(list.Id)"><i class="fa-solid fa-circle-info"></i></button>
-                <button class="btn btn-success"><i class="fa-solid fa-pen-to-square"></i></button>
-                <button class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
+                <button class="btn btn-dark" @onclick="() => GetDetails(list.Id)">Details <i class="fa-solid fa-circle-info"></i></button>
+                <button class="btn btn-success" @onclick="() => GoToUpdate(list.Id)">Edit <i class="fa-solid fa-pen-to-square"></i></button>
+                <button class="btn btn-danger" @onclick="() => DeleteList(list.Id)">Delete <i class="fa-solid fa-trash"></i></button>
             </div>
         </div>
     }
@@ -27,7 +38,7 @@ else
 
 
 @code {
-
+    private string listTitle = string.Empty;
 
     IEnumerable<GetAllResponse> todoLists { get; set; }
 
@@ -49,6 +60,36 @@ else
         Navigation.NavigateTo($"details/{id}");
     }
 
+    public async void CreateList()
+    {
+        try
+        {
+            CreateRequest request = new(listTitle);
+            await CreateListClient.CreateList(request);
+            listTitle = string.Empty;
+            todoLists = await GetAllClient.GetAllAsync();
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+        }
+    }
 
+    public async void DeleteList(Guid Id)
+    {
+        try
+        {
+            await DeleteListClient.DeleteListAsync(Id);
+            todoLists = await GetAllClient.GetAllAsync();
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+        }
+    }
 
+    public void GoToUpdate(Guid id)
+    {
+        Navigation.NavigateTo($"updateList/{id}");
+    }
 }

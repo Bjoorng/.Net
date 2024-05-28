@@ -1,4 +1,4 @@
-﻿namespace Shared.Domains.Entities.Common;
+﻿namespace WebApi.Domains.Entities.Common;
 
 public abstract class BaseEntity<TId>
 {

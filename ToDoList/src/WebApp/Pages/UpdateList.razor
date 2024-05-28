@@ -1,0 +1,56 @@
+﻿@inject UpdateListClient UpdateListClient;
+@inject GetByIdClient GetByIdClient;
+@inject NavigationManager Navigation;
+
+@page "/updateList/{id:guid}"
+
+<h3>UpdateList</h3>
+
+@if (list != null)
+{
+    <EditForm Model="listTitle" OnValidSubmit="() => UpdateTitle(Id)" id="updateForm" class="displayNone">
+        <InputText @bind-Value="listTitle" placeholder="@list.Text" class="form-control form-control-lg"></InputText>
+        <button class="btn btn-primary" type="submit">Save</button>
+    </EditForm>
+}
+else
+{
+    <div>Loading... </div>
+}
+
+@code {
+
+    [Parameter]
+    public Guid Id { get; set; }
+
+    private GetByIdResponse list { get; set; }
+
+    private string listTitle = string.Empty;
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            list = await GetByIdClient.GetByIdAsync(Id);
+        }
+        catch (Exception e)
+        {
+            Console.Write(e);
+        }
+    }
+
+    public async Task UpdateTitle(Guid listId)
+    {
+        try
+        {
+            var updateRequest = new UpdateRequest(listId, listTitle);
+            await UpdateListClient.UpdateListAsync(listId, updateRequest);
+            Navigation.NavigateTo($"/details/{list.Id}");
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+        }
+    }
+
+}

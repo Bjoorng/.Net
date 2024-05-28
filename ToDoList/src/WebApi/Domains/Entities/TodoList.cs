@@ -1,7 +1,9 @@
-﻿using Shared.Domains.Entities.Common;
+﻿using WebApi.Domains.Entities.Common;
 using System.Text.Json.Serialization;
+using AutoMapper;
+using Shared.Models.ToDoLists;
 
-namespace Shared.Domains.Entities;
+namespace WebApi.Domains.Entities;
 
 public class TodoList : AuditableBaseEntity<Guid>
 {
@@ -42,5 +44,13 @@ public class TodoList : AuditableBaseEntity<Guid>
         item.CreatedIn = DateTime.UtcNow;
         Items.Add(item);
         return item;
+    }
+}
+
+public class ResponseMapper : Profile
+{
+    public ResponseMapper()
+    {
+        CreateMap<TodoList, GetAllResponse>();
     }
 }

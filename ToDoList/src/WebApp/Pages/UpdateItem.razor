@@ -9,7 +9,7 @@
 @if (item != null)
 {
     <EditForm Model="formModel" OnValidSubmit="() => UpdateTitle(Id)" id="updateForm" class="displayNone">
-        <InputText @bind-Value="formModel.Title" placeholder="@item.Text" class="form-control"></InputText>
+        <InputText @bind-Value="formModel.Title" placeholder="@item.Text" class="form-control form-control-lg"></InputText>
         <InputSelect @bind-Value="formModel.IsDone" class="form-control">
             <option value=""> -- Select -- </option>
             <option value="true">true</option>
@@ -20,7 +20,7 @@
 }
 else
 {
-    <div>Loading...</div>
+    <div>Loading... </div>
 }
 
 @code {

@@ -9,7 +9,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers().AddNewtonsoftJson();
 builder.Services.AddCors(o => o.AddDefaultPolicy(policy => policy.AllowAnyHeader().AllowAnyOrigin().AllowAnyMethod()));
-builder.Services.AddMyLibraryServices();
+builder.Services.AddSharedServices();
 builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
 builder.Services.AddFastEndpoints()
     .SwaggerDocument();

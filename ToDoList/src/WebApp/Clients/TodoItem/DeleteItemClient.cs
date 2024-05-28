@@ -10,6 +10,6 @@ public class DeleteItemClient
         _httpClient = new HttpClient();
     }
 
-    public async Task DeleteAsync(Guid Id) 
+    public async Task DeleteItemAsync(Guid Id) 
         => await _httpClient.DeleteAsync($"{Url}/{Id}");
 }

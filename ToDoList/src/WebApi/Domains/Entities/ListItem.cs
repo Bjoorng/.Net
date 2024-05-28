@@ -1,8 +1,9 @@
-﻿using System.Text.Json.Serialization;
-using Shared.Domains.Entities.Common;
+﻿using WebApi.Domains.Entities.Common;
+using System.Text.Json.Serialization;
+using AutoMapper;
+using Shared.Models.ToDoLists;
 
-namespace Shared.Domains.Entities;
-
+namespace WebApi.Domains.Entities;
 public class ListItem : AuditableBaseEntity<Guid>
 {
     public string Text { get; private set; }
@@ -44,5 +45,13 @@ public class ListItem : AuditableBaseEntity<Guid>
         IsDone = !IsDone;
         LastModifiedBy = "Luca";
         LastModifiedIn = DateTime.UtcNow;
+    }
+}
+
+public class ItemResponseMapper : Profile
+{
+    public ItemResponseMapper()
+    {
+        CreateMap<ListItem, ItemForListResponse>();
     }
 }

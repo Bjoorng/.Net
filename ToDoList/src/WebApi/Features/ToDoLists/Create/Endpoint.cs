@@ -1,5 +1,5 @@
 ﻿using FastEndpoints;
-using Shared.Domains.Entities;
+using WebApi.Domains.Entities;
 using WebApi.Infrastructure.Data;
 using Shared.Models.ToDoLists;
 

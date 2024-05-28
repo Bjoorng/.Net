@@ -11,7 +11,6 @@ public class CreateItemClient
     }
 
     public async Task CreateItemAsync(CreateItemRequest request, Guid Id)
-    {
-        await _httpClient.PostAsJsonAsync($"{Url}/{Id}/todo-item", request);
-    }
+        => await _httpClient.PostAsJsonAsync($"{Url}/{Id}/todo-item", request);
+    
 }
