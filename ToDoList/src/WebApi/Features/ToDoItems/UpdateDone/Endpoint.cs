@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace WebApi.Features.ToDoItems.UpdateDone;
 
-public class Endpoint(ApplicationDbContext context, AutoMapper.IMapper mapper) : Endpoint<ItemUpdateDoneRequest, ItemUpdateDoneResponse>
+public class Endpoint(ApplicationDbContext context) : Endpoint<ItemUpdateDoneRequest, ItemUpdateDoneResponse>
 {
     public override void Configure()
     {

@@ -3,14 +3,12 @@
 @inject CreateListClient CreateListClient;
 @inject DeleteListClient DeleteListClient;
 
-<h3>ToDoLists</h3>
-
-<div>Add List</div>
+<div class="mt-5 mb-3">Add List</div>
 <div>
     <EditForm Model="listTitle" OnValidSubmit="CreateList">
         <div class="d-flex mb-5">
             <InputText class="form-control form-control-lg me-3" @bind-Value="listTitle"></InputText>
-            <button type="submit" class="btn btn-primary">Add <i class="fa-solid fa-save"></i></button>
+            <button type="submit" class="btn btn-dark">Add <i class="fa-solid fa-save"></i></button>
         </div>
     </EditForm>
 </div>

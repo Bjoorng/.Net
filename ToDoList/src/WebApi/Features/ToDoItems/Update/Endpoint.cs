@@ -5,7 +5,7 @@ using WebApi.Domains.Entities;
 
 namespace WebApi.Features.ToDoItems.Update;
 
-public class Endpoint(ApplicationDbContext context, AutoMapper.IMapper mapper) : Endpoint<ItemUpdateRequest, ItemUpdateResponse>
+public class Endpoint(ApplicationDbContext context) : Endpoint<ItemUpdateRequest, ItemUpdateResponse>
 {
     public override void Configure()
     {

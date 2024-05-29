@@ -2,14 +2,16 @@
 using System.Text.Json.Serialization;
 using AutoMapper;
 using Shared.Models.ToDoLists;
+using WebApi.Services;
 
 namespace WebApi.Domains.Entities;
 
-public class TodoList : AuditableBaseEntity<Guid>
+public class TodoList : AuditableBaseEntity<Guid>, IProgressive
 {
     public string Title { get; private set; }
     public bool IsDone { get; private set; }
     public List<ListItem>? Items { get; private set; }
+    public int ProgressiveInt { get; set; }
 
     [JsonConstructor]
     private TodoList(Guid id, string title, bool isDone) : base(id)
